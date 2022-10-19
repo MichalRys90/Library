@@ -2,6 +2,7 @@ package com.kodilla.kodillalibrary.controller;
 
 import com.kodilla.kodillalibrary.domain.Book;
 import com.kodilla.kodillalibrary.domain.BookDto;
+import com.kodilla.kodillalibrary.domain.Status;
 import com.kodilla.kodillalibrary.mapper.BookMapper;
 import com.kodilla.kodillalibrary.service.DbService;
 import lombok.RequiredArgsConstructor;
@@ -52,4 +53,15 @@ public class BookController {
         dbService.saveBook(book);
         return ResponseEntity.ok().build();
     }
+
+    @PutMapping(value = "/updateStatus")
+    public void updateStatus(@RequestParam Long id, @RequestParam Status status) {
+        dbService.updateBookStatus(id, status);
+    }
+
+    @GetMapping(value = "/howManyFree")
+    public Long howManyBooks(@RequestParam String title) {
+        return dbService.freeBooks(title);
+    }
+
 }

@@ -4,10 +4,7 @@ import com.kodilla.kodillalibrary.controller.BookNotFoundException;
 import com.kodilla.kodillalibrary.controller.HireNotFoundException;
 import com.kodilla.kodillalibrary.controller.ReaderNotFoundException;
 import com.kodilla.kodillalibrary.controller.TitleNotFoundException;
-import com.kodilla.kodillalibrary.domain.Book;
-import com.kodilla.kodillalibrary.domain.Hire;
-import com.kodilla.kodillalibrary.domain.Reader;
-import com.kodilla.kodillalibrary.domain.Title;
+import com.kodilla.kodillalibrary.domain.*;
 import com.kodilla.kodillalibrary.repository.BookRepository;
 import com.kodilla.kodillalibrary.repository.HireRepository;
 import com.kodilla.kodillalibrary.repository.ReaderRepository;
@@ -16,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -55,7 +53,7 @@ public class DbService {
     }
 
     public void deleteHire(final Long id) {
-        bookRepository.deleteById(id);
+        hireRepository.deleteById(id);
     }
 
     public List<Reader> getAllReaders() {
@@ -90,4 +88,17 @@ public class DbService {
         titleRepository.deleteById(id);
     }
 
+    public long freeBooks(String title) {
+        return bookRepository.findAll().stream()
+                .filter(t -> t.getTitle().getTitle().equals(title))
+                .filter(s -> s.getStatus().equals(Status.AVAILABLE))
+                .count();
+    }
+
+    public void updateBookStatus(Long id, Status status) {
+        Optional<Book> books = bookRepository.findById(id);
+        Book book = books.get();
+        book.setStatus(status);
+        bookRepository.save(book);
+    }
 }

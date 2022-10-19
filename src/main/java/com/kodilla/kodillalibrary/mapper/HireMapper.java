@@ -18,13 +18,14 @@ public class HireMapper {
     private BookRepository bookRepository;
 
     public Hire mapToHire(final HireDto hireDto) {
-        return new Hire(
+        Hire hire = new Hire(
                 hireDto.getId(),
-                readerRepository.findById(hireDto.getId()).get(),
-                bookRepository.findById(hireDto.getId()).get(),
+                readerRepository.findById(hireDto.getReaderId()).get(),
+                bookRepository.findById(hireDto.getBookId()).get(),
                 hireDto.getRented(),
                 hireDto.getReturned()
         );
+        return hire;
     }
 
     public HireDto mapToHireDto(final Hire hire) {
