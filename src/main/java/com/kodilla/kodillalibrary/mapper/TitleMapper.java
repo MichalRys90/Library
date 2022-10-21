@@ -1,7 +1,7 @@
 package com.kodilla.kodillalibrary.mapper;
 
 import com.kodilla.kodillalibrary.domain.Title;
-import com.kodilla.kodillalibrary.domain.TitleDto;
+import com.kodilla.kodillalibrary.dto.TitleDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

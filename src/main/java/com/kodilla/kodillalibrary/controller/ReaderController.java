@@ -1,9 +1,10 @@
 package com.kodilla.kodillalibrary.controller;
 
 import com.kodilla.kodillalibrary.domain.Reader;
-import com.kodilla.kodillalibrary.domain.ReaderDto;
+import com.kodilla.kodillalibrary.dto.ReaderDto;
+import com.kodilla.kodillalibrary.exception.ReaderNotFoundException;
 import com.kodilla.kodillalibrary.mapper.ReaderMapper;
-import com.kodilla.kodillalibrary.service.DbService;
+import com.kodilla.kodillalibrary.service.ReaderDbService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -18,7 +19,7 @@ import java.util.List;
 public class ReaderController {
 
     @Autowired
-    private DbService dbService;
+    private ReaderDbService dbService;
     @Autowired
     private ReaderMapper readerMapper;
 

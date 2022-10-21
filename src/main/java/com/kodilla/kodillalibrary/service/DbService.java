@@ -1,9 +1,9 @@
 package com.kodilla.kodillalibrary.service;
 
-import com.kodilla.kodillalibrary.controller.BookNotFoundException;
-import com.kodilla.kodillalibrary.controller.HireNotFoundException;
-import com.kodilla.kodillalibrary.controller.ReaderNotFoundException;
-import com.kodilla.kodillalibrary.controller.TitleNotFoundException;
+import com.kodilla.kodillalibrary.exception.BookNotFoundException;
+import com.kodilla.kodillalibrary.exception.HireNotFoundException;
+import com.kodilla.kodillalibrary.exception.ReaderNotFoundException;
+import com.kodilla.kodillalibrary.exception.TitleNotFoundException;
 import com.kodilla.kodillalibrary.domain.*;
 import com.kodilla.kodillalibrary.repository.BookRepository;
 import com.kodilla.kodillalibrary.repository.HireRepository;

@@ -1,11 +1,11 @@
-package com.kodilla.kodillalibrary.domain;
+package com.kodilla.kodillalibrary.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,6 +16,6 @@ public class HireDto {
     private long id;
     private long bookId;
     private long readerId;
-    private Date rented;
-    private Date returned;
+    private LocalDate rented;
+    private LocalDate returned;
 }

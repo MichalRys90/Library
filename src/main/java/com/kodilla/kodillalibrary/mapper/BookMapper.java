@@ -1,7 +1,7 @@
 package com.kodilla.kodillalibrary.mapper;
 
 import com.kodilla.kodillalibrary.domain.Book;
-import com.kodilla.kodillalibrary.domain.BookDto;
+import com.kodilla.kodillalibrary.dto.BookDto;
 import com.kodilla.kodillalibrary.repository.TitleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

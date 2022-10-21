@@ -10,7 +10,10 @@ import java.util.Optional;
 @Repository
 public interface BookRepository extends CrudRepository<Book, Long> {
     List<Book> findAll();
+
     Optional<Book> findById(Long id);
+
     Book save(Book book);
+
     void deleteById(Long id);
 }

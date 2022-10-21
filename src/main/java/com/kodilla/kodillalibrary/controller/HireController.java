@@ -1,9 +1,10 @@
 package com.kodilla.kodillalibrary.controller;
 
 import com.kodilla.kodillalibrary.domain.Hire;
-import com.kodilla.kodillalibrary.domain.HireDto;
+import com.kodilla.kodillalibrary.dto.HireDto;
+import com.kodilla.kodillalibrary.exception.HireNotFoundException;
 import com.kodilla.kodillalibrary.mapper.HireMapper;
-import com.kodilla.kodillalibrary.service.DbService;
+import com.kodilla.kodillalibrary.service.HireDbService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -18,7 +19,7 @@ import java.util.List;
 public class HireController {
 
     @Autowired
-    private DbService dbService;
+    private HireDbService dbService;
     @Autowired
     private HireMapper hireMapper;
 
@@ -51,5 +52,15 @@ public class HireController {
         Hire hire = hireMapper.mapToHire(hireDto);
         dbService.saveHire(hire);
         return ResponseEntity.ok().build();
+    }
+
+    @PostMapping(value = "/rent")
+    public void rentBook(@RequestParam Long bookId, @RequestParam Long readerId) {
+        dbService.rentBook(bookId, readerId);
+    }
+
+    @PutMapping(value = "/return")
+    public void returnBook(@RequestParam Long hireId) {
+        dbService.returnBook(hireId);
     }
 }

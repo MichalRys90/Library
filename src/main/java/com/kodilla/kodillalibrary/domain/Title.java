@@ -46,4 +46,10 @@ public class Title {
         this.author = author;
         this.publicationYear = publicationYear;
     }
+
+    public Title(String title, String author, Date publicationYear) {
+        this.title = title;
+        this.author = author;
+        this.publicationYear = publicationYear;
+    }
 }

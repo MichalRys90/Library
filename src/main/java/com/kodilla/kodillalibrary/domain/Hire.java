@@ -4,9 +4,8 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.time.LocalDate;
+
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -32,9 +31,9 @@ public class Hire {
 
 
     @Column(name = "RENTED")
-    private Date rented;
+    private LocalDate rented;
 
 
     @Column(name = "RETURNED")
-    private Date returned;
+    private LocalDate returned;
 }

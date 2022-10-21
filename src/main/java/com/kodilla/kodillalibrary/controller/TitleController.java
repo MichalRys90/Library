@@ -1,10 +1,10 @@
 package com.kodilla.kodillalibrary.controller;
 
 import com.kodilla.kodillalibrary.domain.Title;
-import com.kodilla.kodillalibrary.domain.TitleDto;
+import com.kodilla.kodillalibrary.dto.TitleDto;
+import com.kodilla.kodillalibrary.exception.TitleNotFoundException;
 import com.kodilla.kodillalibrary.mapper.TitleMapper;
-import com.kodilla.kodillalibrary.mapper.TitleMapper;
-import com.kodilla.kodillalibrary.service.DbService;
+import com.kodilla.kodillalibrary.service.TitleDbService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -19,7 +19,7 @@ import java.util.List;
 public class TitleController {
 
     @Autowired
-    private DbService dbService;
+    private TitleDbService dbService;
     @Autowired
     private TitleMapper titleMapper;
 

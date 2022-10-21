@@ -1,7 +1,7 @@
 package com.kodilla.kodillalibrary.mapper;
 
 import com.kodilla.kodillalibrary.domain.Hire;
-import com.kodilla.kodillalibrary.domain.HireDto;
+import com.kodilla.kodillalibrary.dto.HireDto;
 import com.kodilla.kodillalibrary.repository.BookRepository;
 import com.kodilla.kodillalibrary.repository.ReaderRepository;
 import org.springframework.beans.factory.annotation.Autowired;

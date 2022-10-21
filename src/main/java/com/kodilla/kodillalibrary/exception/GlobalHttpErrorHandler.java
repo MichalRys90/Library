@@ -1,5 +1,9 @@
-package com.kodilla.kodillalibrary.controller;
+package com.kodilla.kodillalibrary.exception;
 
+import com.kodilla.kodillalibrary.exception.BookNotFoundException;
+import com.kodilla.kodillalibrary.exception.HireNotFoundException;
+import com.kodilla.kodillalibrary.exception.ReaderNotFoundException;
+import com.kodilla.kodillalibrary.exception.TitleNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

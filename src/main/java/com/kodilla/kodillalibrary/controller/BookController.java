@@ -1,10 +1,11 @@
 package com.kodilla.kodillalibrary.controller;
 
 import com.kodilla.kodillalibrary.domain.Book;
-import com.kodilla.kodillalibrary.domain.BookDto;
+import com.kodilla.kodillalibrary.dto.BookDto;
 import com.kodilla.kodillalibrary.domain.Status;
+import com.kodilla.kodillalibrary.exception.BookNotFoundException;
 import com.kodilla.kodillalibrary.mapper.BookMapper;
-import com.kodilla.kodillalibrary.service.DbService;
+import com.kodilla.kodillalibrary.service.BookDbService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -19,7 +20,7 @@ import java.util.List;
 public class BookController {
 
     @Autowired
-    private DbService dbService;
+    private BookDbService dbService;
     @Autowired
     private BookMapper bookMapper;
 

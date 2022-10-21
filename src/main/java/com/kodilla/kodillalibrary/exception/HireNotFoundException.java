@@ -1,4 +1,4 @@
-package com.kodilla.kodillalibrary.controller;
+package com.kodilla.kodillalibrary.exception;
 
 public class HireNotFoundException extends Exception{
 }
