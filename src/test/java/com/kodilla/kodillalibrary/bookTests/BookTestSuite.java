@@ -12,6 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 
 import java.time.Instant;
+import java.time.LocalDate;
 import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -30,7 +31,7 @@ public class BookTestSuite {
     void testBookSave() {
         //Given
         Book book = new Book();
-        Title title = new Title("title", "author", Date.from(Instant.now()));
+        Title title = new Title("title", "author", LocalDate.now());
         book.setStatus(Status.AVAILABLE);
         book.setTitle(title);
 
@@ -51,7 +52,7 @@ public class BookTestSuite {
     @Test
     void testHowManyBooks() {
         //Given
-        Title title = new Title("Title", "author", Date.from(Instant.now()));
+        Title title = new Title("Title", "author", LocalDate.now());
         Book book = new Book();
         Book book1 = new Book();
         book.setTitle(title);
@@ -80,7 +81,7 @@ public class BookTestSuite {
     @Test
     void testForChangeStatus() {
         //Given
-        Title title = new Title("Title", "author", Date.from(Instant.now()));
+        Title title = new Title("Title", "author", LocalDate.now());
         Book book = new Book();
         book.setTitle(title);
         book.setStatus(Status.AVAILABLE);

@@ -2,7 +2,7 @@ package com.kodilla.kodillalibrary.dto;
 
 import lombok.*;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -13,5 +13,5 @@ public class TitleDto {
     private long id;
     private String title;
     private String author;
-    private Date publicationYear;
+    private LocalDate publicationYear;
 }
