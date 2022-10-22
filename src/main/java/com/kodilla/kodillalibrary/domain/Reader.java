@@ -49,4 +49,10 @@ public class Reader {
         this.lastName = lastName;
         this.accountCreated = accountCreated;
     }
+
+    public Reader(String name, String lastName, Date accountCreated) {
+        this.name = name;
+        this.lastName = lastName;
+        this.accountCreated = accountCreated;
+    }
 }

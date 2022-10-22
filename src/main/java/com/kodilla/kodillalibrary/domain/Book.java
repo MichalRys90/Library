@@ -43,4 +43,8 @@ public class Book {
         this.title = title;
         this.status = status;
     }
+
+    public Book(Status status) {
+        this.status = status;
+    }
 }
