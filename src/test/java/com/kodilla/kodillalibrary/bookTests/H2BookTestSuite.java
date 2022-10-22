@@ -9,14 +9,15 @@ import com.kodilla.kodillalibrary.service.BookDbService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
+import org.springframework.test.context.ActiveProfiles;
 
 import java.time.LocalDate;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
-public class BookTestSuite {
+@ActiveProfiles("test")
+public class H2BookTestSuite {
 
     @Autowired
     private BookDbService dbService;
@@ -36,21 +37,16 @@ public class BookTestSuite {
         //When
         titleRepository.save(title);
         bookRepository.save(book);
-        long id = book.getId();
-        long titleId = title.getId();
+        String result = title.getTitle();
 
         //Then
-        assertNotEquals(0, id);
-
-        //CleanUp
-        bookRepository.deleteById(id);
-        titleRepository.deleteById(titleId);
+        assertEquals("title", result);
     }
 
     @Test
     void testHowManyBooks() {
         //Given
-        Title title = new Title("Title", "author", LocalDate.now());
+        Title title = new Title("Titles", "author", LocalDate.now());
         Book book = new Book();
         Book book1 = new Book();
         book.setTitle(title);
@@ -62,18 +58,10 @@ public class BookTestSuite {
         titleRepository.save(title);
         bookRepository.save(book);
         bookRepository.save(book1);
-        long id = title.getId();
-        long id1 = book.getId();
-        long id2 = book1.getId();
-        long result = dbService.freeBooks("Title");
+        long result = dbService.freeBooks("Titles");
 
         //Then
         assertEquals(2, result);
-
-        //Clen up
-        bookRepository.deleteById(id2);
-        bookRepository.deleteById(id1);
-        titleRepository.deleteById(id);
     }
 
     @Test
@@ -87,16 +75,11 @@ public class BookTestSuite {
         //When
         titleRepository.save(title);
         bookRepository.save(book);
-        long id = title.getId();
         long id2 = book.getId();
         dbService.updateBookStatus(id2, Status.LOST);
         Status result = bookRepository.findById(id2).get().getStatus();
 
         //Then
         assertEquals(Status.LOST, result);
-
-        //Clen up
-        bookRepository.deleteById(id2);
-        titleRepository.deleteById(id);
     }
 }

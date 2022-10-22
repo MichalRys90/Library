@@ -7,15 +7,16 @@ import com.kodilla.kodillalibrary.service.ReaderDbService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.time.Instant;
 import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
 @SpringBootTest
-public class ReaderTestSuite {
+@ActiveProfiles("test")
+public class H2ReaderTestSuite {
 
     @Autowired
     private ReaderRepository repository;
@@ -35,8 +36,5 @@ public class ReaderTestSuite {
 
         //Then
         assertEquals(id, result);
-
-        //Clean up
-        repository.deleteById(id);
     }
 }

@@ -11,6 +11,7 @@ import com.kodilla.kodillalibrary.service.HireDbService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.sql.Date;
 import java.time.Instant;
@@ -18,7 +19,8 @@ import java.time.Instant;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
-public class HireTestSuite {
+@ActiveProfiles("test")
+public class H2HireTestSuite {
 
     @Autowired
     private HireRepository hireRepository;
@@ -40,17 +42,11 @@ public class HireTestSuite {
         bookRepository.save(book);
         long bookId = book.getId();
         long readerId = reader.getId();
-        Hire hire = dbService.rentBook(bookId, readerId);
-        long hireId = hire.getId();
+        dbService.rentBook(bookId, readerId);
         Status status = bookRepository.findById(bookId).get().getStatus();
 
         //Then
         assertEquals(Status.RENTED, status);
-
-        //Clean up
-        hireRepository.deleteById(hireId);
-        readerRepository.deleteById(readerId);
-        bookRepository.deleteById(bookId);
     }
 
     @Test
@@ -70,9 +66,5 @@ public class HireTestSuite {
 
         //Then
         assertEquals(Status.AVAILABLE, status);
-
-        //Clean up
-        hireRepository.deleteById(hireId);
-        bookRepository.deleteById(bookId);
     }
 }
